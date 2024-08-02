@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
 
-import { Logo } from 'assets';
+import { Logo } from '../assets';
 
 export default function Home() {
   const session = useSession();
