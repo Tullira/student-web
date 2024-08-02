@@ -24,7 +24,7 @@ export default function Login() {
   }
 
   return (
-    <div className="flex flex-1 flex-col h-full justify-around items-center bg-black">
+    <div className="flex flex-1 flex-col h-full justify-around items-center">
       <Card className="w-full max-w-sm">
         <CardHeader>
           <div>
