@@ -12,6 +12,7 @@ RUN pnpm install
 COPY client.js .
 COPY tsconfig.json .
 COPY next.config.js .
+COPY public ./public
 COPY ./src ./src
 
 ENV NODE_OPTIONS=--max_old_space_size=2560
