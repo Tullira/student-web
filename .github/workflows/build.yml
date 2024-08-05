@@ -15,16 +15,16 @@ jobs:
 
       # Installs all the packages
       - name: Install dependencies and packages
-        run: pnpm install
+        run: yarn install
 
       # Runs the lint script
       - name: Run the lint Script
-        run: pnpm lint
+        run: yarn lint
 
       # Runs the typecheck script
       - name: Run the typecheck Script
-        run: pnpm typecheck
+        run: yarn typecheck
 
       # Runs the build script
       - name: Run the build Script
-        run: pnpm build
+        run: yarn build
