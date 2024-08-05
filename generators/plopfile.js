@@ -39,13 +39,8 @@ module.exports = (plop) => {
         return [
           {
             type: 'add',
-            path: `../src/app/${folderName}/index.tsx`,
+            path: `../src/app/${folderName}/page.tsx`,
             templateFile: 'templates/page.tsx.hbs'
-          },
-          {
-            type: 'add',
-            path: `../src/app/${folderName}/style.ts`,
-            templateFile: 'templates/style.ts.hbs'
           }
         ];
       }
@@ -55,11 +50,6 @@ module.exports = (plop) => {
           type: 'add',
           path: `../src/components/${folderName}/index.tsx`,
           templateFile: 'templates/component.tsx.hbs'
-        },
-        {
-          type: 'add',
-          path: `../src/components/${folderName}/style.ts`,
-          templateFile: 'templates/style.ts.hbs'
         }
       ];
     }

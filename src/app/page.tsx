@@ -4,9 +4,7 @@ import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
 
-import { Container, ImageContainer } from './styles';
-import { Logo } from 'assets';
-import { CustomText } from 'styles/globalComponents';
+import { Logo } from '../assets';
 
 export default function Home() {
   const session = useSession();
@@ -16,17 +14,17 @@ export default function Home() {
   }
 
   return (
-    <Container>
-      <ImageContainer>
-        <Image src={Logo} alt="Logo do CITi" />
-      </ImageContainer>
-      <CustomText bold white size="40px" margin="20px 0">
-        NextJS Boilerplate
-      </CustomText>
-      <CustomText regular white secondary>
-        Made with <strong>&lt; &#x0002F; &gt;</strong> and{' '}
-        <strong>&hearts;</strong> by CITi
-      </CustomText>
-    </Container>
+    <div className="flex flex-1 flex-col h-full justify-around items-center bg-black">
+      <div>
+        <Image src={Logo} alt="Logo citi" />
+      </div>
+      <div className="flex flex-col justify-center items-center">
+        <h1 className="text-white text-4xl font-bold">NextJS Boilerplate</h1>
+        <p className="text-white text-xl">
+          Made with <strong>&lt; &#x0002F; &gt;</strong> and{' '}
+          <strong>&hearts;</strong> by CITi
+        </p>
+      </div>
+    </div>
   );
 }

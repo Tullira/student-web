@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 
 import NextAuthSessionProvider from 'providers/sessionProvider';
-import StyledComponentsRegistry from 'providers/registry';
+import { ThemeProvider } from 'components/theme-provider';
+import 'styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Next.js Boilerplate',
@@ -18,9 +19,14 @@ export default function RootLayout({
     <html>
       <body>
         <NextAuthSessionProvider>
-          <StyledComponentsRegistry>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
             {children}
-          </StyledComponentsRegistry>
+          </ThemeProvider>
         </NextAuthSessionProvider>
       </body>
     </html>
