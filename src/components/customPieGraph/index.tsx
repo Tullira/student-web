@@ -7,11 +7,11 @@ import {
   RadialBar,
   RadialBarChart
 } from 'recharts';
-
+import { Button } from 'components/ui/button';
 import {
   Card,
   CardContent,
-  CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle
 } from 'components/ui/card';
@@ -39,12 +39,11 @@ export function CustomPieGraph({ chartData }: ChartDataType) {
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-0">
         <CardTitle>{chartData[0].subject}</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]"
+          className="mx-auto aspect-square max-h-[220px]"
         >
           <RadialBarChart
             data={chartData}
@@ -96,6 +95,9 @@ export function CustomPieGraph({ chartData }: ChartDataType) {
           </RadialBarChart>
         </ChartContainer>
       </CardContent>
+      <CardFooter className='h-[30px] flex justify-center'>
+        <Button variant="ghost">Adicionar Falta</Button>
+      </CardFooter>
     </Card>
   );
 }
