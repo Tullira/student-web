@@ -1,9 +1,8 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from 'components/ui/card';
-import { Badge } from 'components/ui/badge';
 import { ScrollArea } from 'components/ui/scroll-area';
-import { CheckCircle2, AlertCircle } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 // interface CompletedCourse {
 //   id: number;

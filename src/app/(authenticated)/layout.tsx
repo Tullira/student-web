@@ -1,16 +1,10 @@
-import type { Metadata } from 'next';
+"use client";
 
 import NextAuthSessionProvider from 'providers/sessionProvider';
-import { ThemeProvider } from 'components/theme-provider';
+import { ThemeProvider } from 'components/molecules/theme-provider';
 import 'styles/globals.css';
-import { Sidebar } from 'components/sidebar';
+import { Sidebar } from 'components/molecules/sidebar';
 import { TooltipProvider } from 'components/ui/tooltip';
-export const metadata: Metadata = {
-  title: 'Next.js Boilerplate',
-  description: 'A simple boilerplate for next.js',
-  manifest: '/manifest.json'
-};
-
 export default function RootLayout({
   children
 }: {

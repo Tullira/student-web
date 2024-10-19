@@ -7,7 +7,7 @@ import {
   RadialBar,
   RadialBarChart
 } from 'recharts';
-import { DrawerDemo } from 'components/customDrawer';
+import { DrawerDemo } from 'components/molecules/customDrawer';
 import {
   Card,
   CardContent,

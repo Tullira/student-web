@@ -1,6 +1,6 @@
 // components/Dashboard.tsx
 
-import { CustomPieGraph } from 'components/customPieGraph';
+import { CustomPieGraph } from 'components/templates/customPieGraph';
 const chartData1 = [
   {
     subject: 'Cálculo 3',
