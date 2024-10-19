@@ -7,7 +7,7 @@ import {
   RadialBar,
   RadialBarChart
 } from 'recharts';
-import { Button } from 'components/ui/button';
+import { DrawerDemo } from 'components/customDrawer';
 import {
   Card,
   CardContent,
@@ -95,8 +95,9 @@ export function CustomPieGraph({ chartData }: ChartDataType) {
           </RadialBarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className='h-[30px] flex justify-center'>
-        <Button variant="ghost">Adicionar Falta</Button>
+      <CardFooter className=" flex justify-center">
+        {/* <Button variant="ghost">Adicionar Falta</Button> */}
+        <DrawerDemo />
       </CardFooter>
     </Card>
   );

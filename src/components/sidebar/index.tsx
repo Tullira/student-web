@@ -31,8 +31,8 @@ export function Sidebar() {
         {[
           { href: '/home', icon: Home, label: 'Dashboard' },
           { href: '/add-subject', icon: ShoppingCart, label: 'Pedidos' },
-          { href: '#', icon: Package, label: 'Produtos' },
-          { href: '#', icon: Users2, label: 'Clientes' },
+          { href: '/subject-list', icon: Package, label: 'Produtos' },
+          { href: '/finished-subject', icon: Users2, label: 'Clientes' },
           { href: '#', icon: LineChart, label: 'Análises' }
         ].map((item) => (
           <Tooltip key={item.label}>
