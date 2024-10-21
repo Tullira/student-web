@@ -13,11 +13,17 @@ import {
   DrawerTrigger
 } from 'components/ui/drawer';
 
-export function DrawerDemo() {
-  const [goal, setGoal] = React.useState(350);
+interface DrawerInterface {
+  onSubmit: () => void;
+  faults: number;
+  maxFaults: number
+}
+
+export function DrawerDemo({ onSubmit, faults, maxFaults }: DrawerInterface) {
+  const [goal, setGoal] = React.useState(faults);
 
   function onClick(adjustment: number) {
-    setGoal(Math.max(200, Math.min(400, goal + adjustment)));
+    setGoal(Math.max(0, Math.min(maxFaults, goal + adjustment)));
   }
 
   return (
@@ -28,8 +34,8 @@ export function DrawerDemo() {
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
-            <DrawerTitle>Move Goal</DrawerTitle>
-            <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+            <DrawerTitle>Gerenciar faltas</DrawerTitle>
+            <DrawerDescription>Ajuste a quantidade de faltas na cadeira.</DrawerDescription>
           </DrawerHeader>
           <div className="p-4 pb-0">
             <div className="flex items-center justify-center space-x-2">
@@ -37,8 +43,8 @@ export function DrawerDemo() {
                 variant="outline"
                 size="icon"
                 className="h-8 w-8 shrink-0 rounded-full"
-                onClick={() => onClick(-10)}
-                disabled={goal <= 200}
+                onClick={() => onClick(-1)}
+                disabled={goal <= 0}
               >
                 <Minus className="h-4 w-4" />
                 <span className="sr-only">Decrease</span>
@@ -47,16 +53,13 @@ export function DrawerDemo() {
                 <div className="text-7xl font-bold tracking-tighter">
                   {goal}
                 </div>
-                <div className="text-[0.70rem] uppercase text-muted-foreground">
-                  Calories/day
-                </div>
               </div>
               <Button
                 variant="outline"
                 size="icon"
                 className="h-8 w-8 shrink-0 rounded-full"
-                onClick={() => onClick(10)}
-                disabled={goal >= 400}
+                onClick={() => onClick(1)}
+                disabled={goal >= maxFaults}
               >
                 <Plus className="h-4 w-4" />
                 <span className="sr-only">Increase</span>
@@ -64,7 +67,7 @@ export function DrawerDemo() {
             </div>
           </div>
           <DrawerFooter>
-            <Button>Submit</Button>
+            <Button onClick={onSubmit}>Submit</Button>
             <DrawerClose asChild>
               <Button variant="outline">Cancel</Button>
             </DrawerClose>

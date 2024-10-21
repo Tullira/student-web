@@ -16,7 +16,7 @@ import {
   CardTitle
 } from 'components/ui/card';
 import { ChartConfig, ChartContainer } from 'components/ui/chart';
-import { ChartDataType } from './type';
+import { GraphInputType } from './type';
 
 export const description = 'A radial chart with text';
 
@@ -34,11 +34,16 @@ const chartConfig = {
   }
 } satisfies ChartConfig;
 
-export function CustomPieGraph({ chartData }: ChartDataType) {
+export function CustomPieGraph({
+  subject,
+  faults,
+  maxFaults,
+  fill
+}: GraphInputType) {
   return (
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-0">
-        <CardTitle>{chartData[0].subject}</CardTitle>
+        <CardTitle>{subject}</CardTitle>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
@@ -46,9 +51,9 @@ export function CustomPieGraph({ chartData }: ChartDataType) {
           className="mx-auto aspect-square max-h-[220px]"
         >
           <RadialBarChart
-            data={chartData}
+            data={[{ subject, faults, maxFaults }]}
             startAngle={0}
-            endAngle={(chartData[0].faults / chartData[0].maxFaults) * 360}
+            endAngle={(faults / maxFaults) * 360}
             innerRadius={80}
             outerRadius={110}
           >
@@ -59,7 +64,7 @@ export function CustomPieGraph({ chartData }: ChartDataType) {
               className="first:fill-muted last:fill-background"
               polarRadius={[86, 74]}
             />
-            <RadialBar dataKey="faults" background cornerRadius={10} />
+            <RadialBar dataKey="faults" fill={fill} cornerRadius={10} />
             <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
               <Label
                 content={({ viewBox }) => {
@@ -76,8 +81,7 @@ export function CustomPieGraph({ chartData }: ChartDataType) {
                           y={viewBox.cy}
                           className="fill-foreground text-2xl font-bold"
                         >
-                          {chartData[0].faults.toLocaleString()}/
-                          {chartData[0].maxFaults.toLocaleString()}
+                          {faults.toLocaleString()}/{maxFaults.toLocaleString()}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
@@ -97,7 +101,11 @@ export function CustomPieGraph({ chartData }: ChartDataType) {
       </CardContent>
       <CardFooter className=" flex justify-center">
         {/* <Button variant="ghost">Adicionar Falta</Button> */}
-        <DrawerDemo />
+        <DrawerDemo
+          onSubmit={() => console.log('oiii')}
+          maxFaults={maxFaults}
+          faults={faults}
+        />
       </CardFooter>
     </Card>
   );

@@ -4,6 +4,3 @@ export interface GraphInputType {
   maxFaults: number;
   fill: string;
 }
-export interface ChartDataType {
-  chartData: GraphInputType[];
-}
